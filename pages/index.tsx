@@ -1,12 +1,12 @@
 /* eslint-disable @next/next/no-img-element */
 import Image from "next/image";
-import MusicPlayer from "../components/MusicPlayer";
 import styled from "styled-components";
-import { useEffect, useState } from "react";
 import callApi from "axios";
 import banner1 from "../public/panners/bao-anh-3-9.jpg";
 import banner2 from "../public/panners/day-lui-covid.jpg";
 import banner3 from "../public/panners/roi-moi-chuyen-se-qua.jpg";
+import { AppContext } from "../context/AppProvider";
+import React, { useContext } from "react";
 
 const ImageStyled = styled.div`
   width: 320px;
@@ -16,7 +16,7 @@ const ImageStyled = styled.div`
   display: inline-block;
   border-radius: 15px;
   @media screen and (max-width: 420px) {
-    margin: 30px 5px 25px 15px;
+    margin: 30px 5px 25px 26px;
     width: 320px;
     height: 150px;
   }
@@ -29,6 +29,7 @@ const TitleMainStyled = styled.div`
 `;
 
 const ItemStyled = styled.div`
+  cursor: pointer;
   width: 1100px;
   color: white;
   padding: 12px;
@@ -52,7 +53,6 @@ const ItemStyled = styled.div`
     }
   }
   .imageItem {
-    cursor: pointer;
     margin-top: 20px;
     border-radius: 5px;
   }
@@ -60,6 +60,10 @@ const ItemStyled = styled.div`
     display: inline-block;
     width: 600px;
     margin-left: 20px;
+    @media screen and (max-width: 420px) {
+      width: 200px;
+      word-wrap: break-word !important;
+    }
   }
   .music_song,
   .creator {
@@ -71,11 +75,20 @@ const ItemStyled = styled.div`
   }
   .creator {
     color: #ced5e3;
+    @media screen and (max-width: 420px) {
+      width: 200px;
+      word-wrap: break-word !important;
+    }
   }
 `;
 
 export default function Home({ musics }) {
-  const [musicChoicePlay, setMusicChoicePlay] = useState("");
+  const { setMusicChoicePlay, setIsShowing } = useContext(AppContext);
+
+  const handlePlayMusic = (music) => {
+    setMusicChoicePlay(music);
+    setIsShowing(false);
+  };
 
   return (
     <>
@@ -120,7 +133,7 @@ export default function Home({ musics }) {
         </TitleMainStyled>
         <div>
           {musics.map((music, index) => (
-            <ItemStyled key={index}>
+            <ItemStyled key={index} onClick={() => handlePlayMusic(music)}>
               <span className="numberItem">{index + 1}</span>
               <img
                 className="imageItem"
@@ -128,7 +141,6 @@ export default function Home({ musics }) {
                 width={45}
                 height={45}
                 alt="null"
-                onClick={() => setMusicChoicePlay(music.music)}
               />
               <div className="description">
                 <span className="music_song">{music.title}</span>
@@ -138,7 +150,6 @@ export default function Home({ musics }) {
           ))}
         </div>
       </div>
-      <MusicPlayer music={musicChoicePlay} />
     </>
   );
 }

@@ -9,9 +9,9 @@ import { AppContext } from "../context/AppProvider";
 import React, { useContext } from "react";
 
 const ImageStyled = styled.div`
-  width: 320px;
+  width: 315px;
   height: 160px;
-  margin: 30px 8px 30px 35px;
+  margin: 30px 8px 30px 30px;
   background-color: white;
   display: inline-block;
   border-radius: 15px;

@@ -88,13 +88,6 @@ export default function Sidebar() {
               </Link>
             </li>
           </ul>
-          <ul>
-            <li>
-              <Link href="/" passHref prefetch={false}>
-                <span className="menu_item_link">Theo dõi</span>
-              </Link>
-            </li>
-          </ul>
           <div className="cross_line"></div>
           <ul>
             <li>

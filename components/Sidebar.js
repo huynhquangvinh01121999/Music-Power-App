@@ -72,7 +72,7 @@ export default function Sidebar() {
         <MenuStyled>
           <div className="userInfo">
             <h4>Xin chào:</h4>
-            <h3 className="name_info">Huỳnh Quang Vinh</h3>
+            <h3 className="name_info">Chào mừng đến với Music Power</h3>
           </div>
           <ul>
             <li>

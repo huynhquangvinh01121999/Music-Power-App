@@ -9,9 +9,9 @@ import banner2 from "../public/panners/day-lui-covid.jpg";
 import banner3 from "../public/panners/roi-moi-chuyen-se-qua.jpg";
 
 const ImageStyled = styled.div`
-  width: 350px;
-  height: 190px;
-  margin: 30px 8px 30px 50px;
+  width: 320px;
+  height: 160px;
+  margin: 30px 8px 30px 35px;
   background-color: white;
   display: inline-block;
   border-radius: 15px;

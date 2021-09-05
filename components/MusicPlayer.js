@@ -15,7 +15,7 @@ const SkipPreviousIconStyled = styled(SkipPreviousIcon)`
   border-radius:50%;
   @media screen and (max-width: 460px) {
     margin-top:10px;  
-    margin-left:30px;
+    margin-left:-20px;
     margin-bottom:-10px;
   }
 `;
@@ -27,7 +27,7 @@ const SkipNextIconStyled = styled(SkipNextIcon)`
   border:1px solid silver;
   border-radius:50%;
   @media screen and (max-width: 460px) {
-    margin-bottom:100px;
+    margin-bottom:120px;
     margin-top:-60px;
   }
 `;
@@ -44,9 +44,10 @@ const RepeatIconStyled = styled(RepeatIcon)`
     color: #3f51b5;
   }
   @media screen and (max-width: 460px) {
-    margin-right: 10px;
     margin-top:10px;
     margin-bottom:-10px;
+    margin-left:0px;
+    margin-right:25px;
   }
 `;
 

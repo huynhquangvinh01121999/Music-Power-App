@@ -27,7 +27,7 @@ const SkipPreviousIconStyled = styled(SkipPreviousIcon)`
 
 const SkipNextIconStyled = styled(SkipNextIcon)`
   cursor: pointer;
-  margin-left: -230px;
+  margin-left: -220px;
   margin-bottom: 5px;
   border: 1px solid silver;
   border-radius: 50%;
@@ -40,7 +40,7 @@ const SkipNextIconStyled = styled(SkipNextIcon)`
   @media screen and (max-width: 767px) {
     position: relative;
     top: 120px;
-    left: 380px;
+    left: 365px;
   }
 `;
 

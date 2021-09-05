@@ -35,25 +35,38 @@ export default function Home({ musics }) {
     setListMusic(musics.top100_VN[0].songs);
   }, []);
 
+  const handleScrollBody = () => {
+    document.getElementById("scroll_section").scrollTo({
+      top: 700,
+      left: 0,
+      behavior: "smooth",
+    });
+  };
+
   const handleGetMusicByCategory = (category: string) => {
     switch (category) {
       case "nhactre":
+        handleScrollBody();
         setCatetogoryTop100("Nhạc trẻ");
         setListMusic(musics.top100_VN[0].songs);
         break;
       case "trutinh":
+        handleScrollBody();
         setCatetogoryTop100("Trữ tình");
         setListMusic(musics.top100_VN[1].songs);
         break;
       case "rapviet":
+        handleScrollBody();
         setCatetogoryTop100("Rap Việt");
         setListMusic(musics.top100_VN[4].songs);
         break;
       case "han":
+        handleScrollBody();
         setCatetogoryTop100("Hàn Quốc");
         setListMusic(musics.top100_CA[0].songs);
         break;
       case "aumy":
+        handleScrollBody();
         setCatetogoryTop100("Âu Mỹ");
         setListMusic(musics.top100_AM[0].songs);
         break;

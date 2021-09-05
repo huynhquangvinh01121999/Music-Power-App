@@ -21,7 +21,7 @@ function MyApp({ Component, pageProps }) {
       <body>
         <Container>
           <Sidebar />
-          <Section>
+          <Section id="scroll_section">
             <Header />
             <Component {...pageProps} />
           </Section>

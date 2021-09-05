@@ -16,3 +16,22 @@ a {
 * {
   box-sizing: border-box;
 }
+
+.banner_top100 {
+  background-image: url("../public/panners/banner-100.png");
+  background-position: center;
+  background-size: cover;
+  height: 280px;
+  opacity: 0.6;
+}
+@media screen and (max-width: 420px) {
+  .category_top100 {
+    width: 420px;
+    border: 1px solid white;
+  }
+}
+@media screen and (max-width: 620px) {
+  .category_top100 {
+    width: 420px;
+  }
+}

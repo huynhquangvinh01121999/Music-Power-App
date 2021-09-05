@@ -11,12 +11,12 @@ const MusicPlayerStyled = styled.div`
   @media screen and (max-width: 420px) {
     margin: 0px 5px 0px 0px;
     width: 420px;
-    height: 130px;
+    height: 200px;
   }
   @media screen and (max-width: 620px) {
     margin: 0px 5px 0px 0px;
     width: 620px;
-    height: 130px;
+    height:200px;
   }
   .audio_player {
     margin-top: 20px;
@@ -78,7 +78,7 @@ const MusicPlayerStyled = styled.div`
   .img_player {
     border-radius: 50%;
     border: 1.5px solid white;
-    margin-left: 300px;
+    margin-left: 200px;
     display: inline-block;
     animation: gyrate 2s linear 0s infinite;
     animation-duration: 6s;
@@ -116,6 +116,7 @@ const MusicPlayerStyled = styled.div`
     width: 70%;
     height: 100px;
     display: inline-block;
+    margin-left:-20px;
     word-wrap: break-word !important;
     @media screen and (max-width: 620px) {
       width: 100%;

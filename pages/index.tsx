@@ -22,8 +22,11 @@ export default function Home({ musics }) {
     setCatetogoryTop100,
   } = useContext(AppContext);
 
-  const handlePlayMusic = (music) => {
-    setMusicChoicePlay(music);
+  const handlePlayMusic = (index, music) => {
+    setMusicChoicePlay({
+      position: index,
+      music: music,
+    });
     setIsShowing(false);
   };
 
@@ -124,7 +127,10 @@ export default function Home({ musics }) {
         </TitleMainStyled>
         <div>
           {listMusic.map((music, index) => (
-            <ItemStyled key={index} onClick={() => handlePlayMusic(music)}>
+            <ItemStyled
+              key={index}
+              onClick={() => handlePlayMusic(index, music)}
+            >
               <span className="numberItem">{index + 1}</span>
               <img
                 className="imageItem"

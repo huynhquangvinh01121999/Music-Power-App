@@ -3,7 +3,10 @@ import React, { useState } from "react";
 export const AppContext = React.createContext();
 
 export default function AppProvider({ children }) {
-  const [musicChoicePlay, setMusicChoicePlay] = useState([]);
+  const [musicChoicePlay, setMusicChoicePlay] = useState({
+    position: null,
+    music: [],
+  });
 
   const [isShowing, setIsShowing] = useState(true);
 

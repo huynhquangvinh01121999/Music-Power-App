@@ -8,36 +8,38 @@ const HeaderStyled = styled.div`
 `;
 
 const SearchStyled = styled.div`
-    display:inline-block;
-    width:45%;
-    input {
-        border-radius: 25px;
-        padding: 15px;
-        width: 500px;
-        background-color: #2f2739;
-        border: none;
-        color: white;
-        outline: none;
-        letter-spacing: 1px;
-        font-size: 15px;
-        ::placeholder {
-        color: white;
+  display: inline-block;
+  width: 45%;
+  input {
+    border-radius: 25px;
+    padding: 15px;
+    width: 500px;
+    background-color: #2f2739;
+    border: none;
+    color: white;
+    outline: none;
+    letter-spacing: 1px;
+    font-size: 15px;
+    ::placeholder {
+      color: white;
     }
-      @media screen and (max-width: 420px) {
-        width:320px;
-        input {
-          border-radius: 5px;
-          padding:5px;
-          background-color: #2f2739;
-          border: none;
-          color: white;
-          outline: none;
-          letter-spacing: 1px;
-          font-size: 15px;
-          ::placeholder {
-          color: white;
+  }
+  @media screen and (max-width: 420px) {
+    width: 320px;
+    input {
+      border-radius: 5px;
+      padding: 5px;
+      background-color: #2f2739;
+      border: none;
+      color: white;
+      outline: none;
+      letter-spacing: 1px;
+      font-size: 15px;
+      ::placeholder {
+        color: white;
       }
     }
+  }
 `;
 
 const LogoStyled = styled.div`

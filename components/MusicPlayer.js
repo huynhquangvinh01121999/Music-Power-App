@@ -11,24 +11,36 @@ const SkipPreviousIconStyled = styled(SkipPreviousIcon)`
   cursor: pointer;
   margin-left: 10px;
   margin-bottom: 5px;
-  border:1px solid silver;
-  border-radius:50%;
-  @media screen and (max-width: 460px) {
-    margin-top:10px;  
-    margin-left:-20px;
-    margin-bottom:-10px;
+  border: 1px solid silver;
+  border-radius: 50%;
+  @media screen and (max-width: 420px) {
+    position: relative;
+    left: 40px;
+    top: 50px;
+  }
+  @media screen and (max-width: 767px) {
+    position: relative;
+    left: 120px;
+    top: 120px;
   }
 `;
 
 const SkipNextIconStyled = styled(SkipNextIcon)`
   cursor: pointer;
-  margin-left: -250px;
+  margin-left: -230px;
   margin-bottom: 5px;
-  border:1px solid silver;
-  border-radius:50%;
-  @media screen and (max-width: 460px) {
-    margin-bottom:120px;
-    margin-top:-60px;
+  border: 1px solid silver;
+  border-radius: 50%;
+  @media screen and (max-width: 420px) {
+    position: relative;
+    top: 120px;
+    left: 360px;
+  }
+
+  @media screen and (max-width: 767px) {
+    position: relative;
+    top: 120px;
+    left: 380px;
   }
 `;
 
@@ -37,17 +49,21 @@ const RepeatIconStyled = styled(RepeatIcon)`
   margin-left: 30px;
   margin-bottom: 8px;
   color: silver;
-  border:1px solid white;
-  border-radius:50%;
+  border: 1px solid white;
+  border-radius: 50%;
   padding: 5px;
   .action_repeat {
     color: #3f51b5;
   }
-  @media screen and (max-width: 460px) {
-    margin-top:10px;
-    margin-bottom:-10px;
-    margin-left:0px;
-    margin-right:25px;
+  @media screen and (max-width: 420px) {
+    position: relative;
+    left: 40px;
+    top: 50px;
+  }
+  @media screen and (max-width: 767px) {
+    position: relative;
+    left: 120px;
+    top: 120px;
   }
 `;
 

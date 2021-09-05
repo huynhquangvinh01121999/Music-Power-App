@@ -8,35 +8,7 @@ const MusicPlayerStyled = styled.div`
   user-select: none;
   width: 100%;
   border: 1px solid #221633;
-  @media screen and (max-width: 420px) {
-    margin: 0px 5px 0px 0px;
-    width: 420px;
-    height: 200px;
-  }
-  @media screen and (max-width: 620px) {
-    margin: 0px 5px 0px 0px;
-    width: 620px;
-    height:200px;
-  }
-  .audio_player {
-    margin-top: 20px;
-    margin-left: 30px;
-    border: 0.2px solid white;
-    width: 70%;
-    border-radius: 50px;
-    @media screen and (max-width: 420px) {
-      border: 0.2px solid white;
-      width: 80%;
-      border-radius: 50px;
-      margin-left: 15px;
-      margin-top: 18px;
-    }
-  }
-  @media screen and (max-width: 620px) {
-    border: 0.2px solid #170f23;
-    width: 100%;
-  }
-}
+
   audio::-webkit-media-controls-panel {
     background-color: #170f23;
     color: #a0276e;
@@ -73,6 +45,13 @@ const MusicPlayerStyled = styled.div`
     margin: 0px 10px 0px 15px;
     padding: 0;
     background-color: white;
+  }
+
+  @media screen and (max-width: 620px) {
+    margin: 0px 5px 0px 0px;
+    height: 180px;
+    border: 1px solid #221633;
+    width: 100%;
   }
 
   .img_player {
@@ -116,27 +95,43 @@ const MusicPlayerStyled = styled.div`
     width: 70%;
     height: 100px;
     display: inline-block;
-    margin-left:-20px;
+    margin-left: -20px;
     word-wrap: break-word !important;
     @media screen and (max-width: 620px) {
-      width: 100%;
-      margin-bottom: 10px;
+      height: 120px;
+      position: absolute;
+    }
+    .audio_player {
+      margin-top: 20px;
+      margin-left: 30px;
+      border: 0.2px solid white;
+      width: 70%;
+      border-radius: 50px;
+      @media screen and (max-width: 420px) {
+        width: 90%;
+        border-radius: 50px;
+        margin: 0 auto;
+        margin-top: -5px;
+        margin-left: 0px;
+      }
+      @media screen and (max-width: 767px) {
+        width: 90%;
+        margin-top: 10px;
+        margin: 0 auto;
+        margin-left: 0px;
+      }
     }
     h3 {
       width: 70%;
       text-align: center;
       margin-top: 10px;
       margin-bottom: -15px;
-      outline:none;
+      outline: none;
       color: rgb(231, 221, 221);
       font-size: 22px;
       font-weight: 600;
-      @media screen and (max-width: 420px) {
-        font-size: 18px;
-        width: 90%;
-        margin-bottom: 0px;
-      }
-      @media screen and (max-width: 620px) {
+      @media screen and (max-width: 767px) {
+        height:48px;
         font-size: 18px;
         width: 90%;
         margin-bottom: 0px;

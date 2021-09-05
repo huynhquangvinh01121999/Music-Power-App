@@ -24,13 +24,20 @@ a {
   height: 280px;
   opacity: 0.6;
 }
-@media screen and (max-width: 420px) {
-  .category_top100 {
-    width: 420px;
-  }
+.category_top100 {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-wrap: wrap;
+  margin: 10px;
 }
-@media screen and (max-width: 620px) {
+@media screen and (max-width: 767px) {
   .category_top100 {
     width: 420px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-wrap: wrap;
+    margin: 15px;
   }
 }

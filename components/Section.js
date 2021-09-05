@@ -14,7 +14,7 @@ const SectionStyled = styled.div`
   ::-webkit-scrollbar-thumb {
     background-color: #f5f5f5;
   }
-  @media screen and (max-width: 620px) {
+  @media screen and (max-width: 767px) {
     width: 100%;
   }
 `;

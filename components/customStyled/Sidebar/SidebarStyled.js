@@ -8,7 +8,7 @@ const SidebarStyled = styled.div`
   h3 {
     color: white;
   }
-  @media screen and (max-width: 620px) {
+  @media screen and (max-width: 767px) {
     display: none;
   }
 `;

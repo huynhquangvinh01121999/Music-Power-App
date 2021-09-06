@@ -28,14 +28,14 @@ const SkipPreviousIconStyled = styled(SkipPreviousIcon)`
 
 const SkipNextIconStyled = styled(SkipNextIcon)`
   cursor: pointer;
-  margin-left: -235px;
+  margin-left: -220px;
   margin-bottom: 5px;
   border: 1px solid silver;
   border-radius: 50%;
   @media screen and (max-width: 420px) {
     position: relative;
     top: 120px;
-    left: 360px;
+    left: 350px;
   }
 
   @media screen and (max-width: 767px) and (min-width: 420px) {
@@ -78,7 +78,7 @@ const ShuffleIconStyled = styled(ShuffleIcon)`
   @media screen and (max-width: 420px) {
     position: relative;
     top: 110px;
-    left: 370px;
+    left: 360px;
   }
 
   @media screen and (max-width: 767px) and (min-width: 421px) {

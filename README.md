@@ -1,4 +1,4 @@
-### Ứng dụng nghe nhạc Music Power
+# Ứng dụng nghe nhạc Music Power
 ## Công nghệ sử dụng: NextJS, Material UI, NodeJS, Firebase, Context API
 ## Mình tạo ra ứng dụng này nhằm mục đích tìm hiểu các kiến thức mới và tạo ra 1 sản phẩm để mọi người cùng trải nghiệm trong những giờ học tập mệt mỏi
 ![image](https://user-images.githubusercontent.com/71429660/132207705-ef43ae54-afa5-431d-ba6d-ae9719e99d57.png)

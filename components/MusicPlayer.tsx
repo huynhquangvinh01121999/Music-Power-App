@@ -5,6 +5,7 @@ import { AppContext } from "../context/AppProvider";
 import SkipPreviousIcon from "@material-ui/icons/SkipPrevious";
 import SkipNextIcon from "@material-ui/icons/SkipNext";
 import RepeatIcon from "@material-ui/icons/Repeat";
+import ShuffleIcon from "@material-ui/icons/Shuffle";
 import styled from "styled-components";
 
 const SkipPreviousIconStyled = styled(SkipPreviousIcon)`
@@ -27,14 +28,14 @@ const SkipPreviousIconStyled = styled(SkipPreviousIcon)`
 
 const SkipNextIconStyled = styled(SkipNextIcon)`
   cursor: pointer;
-  margin-left: -220px;
+  margin-left: -235px;
   margin-bottom: 5px;
   border: 1px solid silver;
   border-radius: 50%;
   @media screen and (max-width: 420px) {
     position: relative;
     top: 120px;
-    left: 340px;
+    left: 360px;
   }
 
   @media screen and (max-width: 767px) and (min-width: 420px) {
@@ -52,9 +53,6 @@ const RepeatIconStyled = styled(RepeatIcon)`
   border: 1px solid white;
   border-radius: 50%;
   padding: 5px;
-  .action_repeat {
-    color: #3f51b5;
-  }
   @media screen and (max-width: 420px) {
     position: relative;
     left: 40px;
@@ -67,6 +65,29 @@ const RepeatIconStyled = styled(RepeatIcon)`
   }
 `;
 
+const ShuffleIconStyled = styled(ShuffleIcon)`
+  position: relative;
+  bottom: 8px;
+  left: 10px;
+  cursor: pointer;
+  color: silver;
+  border: 1px solid white;
+  border-radius: 50%;
+  padding: 5px;
+
+  @media screen and (max-width: 420px) {
+    position: relative;
+    top: 110px;
+    left: 370px;
+  }
+
+  @media screen and (max-width: 767px) and (min-width: 421px) {
+    position: relative;
+    top: 110px;
+    left: 370px;
+  }
+`;
+
 export default function MusicPlayer() {
   const {
     listMusic,
@@ -75,6 +96,8 @@ export default function MusicPlayer() {
     isShowing,
     isRepeat,
     setIsRepeat,
+    isShuffle,
+    setIsShuffle,
   } = useContext(AppContext);
 
   const handlePlayNext = () => {
@@ -87,6 +110,32 @@ export default function MusicPlayer() {
       setMusicChoicePlay({
         position: musicChoicePlay.position + 1,
         music: listMusic[musicChoicePlay.position + 1],
+      });
+    }
+  };
+
+  function getRandomInt(max) {
+    return Math.floor(Math.random() * max);
+  }
+
+  const handlePlayNextWhenEnd = () => {
+    if (!isShuffle) {
+      if (musicChoicePlay.position == listMusic.length - 1) {
+        setMusicChoicePlay({
+          position: 0,
+          music: listMusic[0],
+        });
+      } else {
+        setMusicChoicePlay({
+          position: musicChoicePlay.position + 1,
+          music: listMusic[musicChoicePlay.position + 1],
+        });
+      }
+    } else {
+      const autoPosition = getRandomInt(99);
+      setMusicChoicePlay({
+        position: autoPosition,
+        music: listMusic[autoPosition],
       });
     }
   };
@@ -112,6 +161,15 @@ export default function MusicPlayer() {
       : (repeat.style.color = "silver");
 
     setIsRepeat(!isRepeat);
+  };
+
+  const handleShuffle = () => {
+    const shuffle = document.getElementById("shuffle");
+    !isShuffle
+      ? (shuffle.style.color = "#3f51b5")
+      : (shuffle.style.color = "silver");
+
+    setIsShuffle(!isShuffle);
   };
 
   return (
@@ -147,14 +205,19 @@ export default function MusicPlayer() {
           title={
             musicChoicePlay.music.title + " - " + musicChoicePlay.music.creator
           }
-          onEnded={handlePlayNext} // khi hết bài sẽ tự chuyển sang bài kế tiếp
-          onError={handlePlayNext} // khi gặp bài bị lỗi sẽ tự chuyển sang bài kế tiếp
+          onEnded={handlePlayNextWhenEnd} // khi hết bài sẽ tự chuyển sang bài kế tiếp
+          onError={handlePlayNextWhenEnd} // khi gặp bài bị lỗi sẽ tự chuyển sang bài kế tiếp
         />
       </div>
       <SkipNextIconStyled
         color="primary"
         style={{ fontSize: 40 }}
         onClick={handlePlayNext}
+      />
+      <ShuffleIconStyled
+        style={{ fontSize: 30 }}
+        id="shuffle"
+        onClick={handleShuffle}
       />
     </MusicPlayerStyled>
   );

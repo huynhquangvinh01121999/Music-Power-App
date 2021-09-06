@@ -23,20 +23,6 @@ const MenuSidebarStyled = styled.div`
   .spacing {
     height: 1000px;
   }
-  .userInfo {
-    margin: 0 auto;
-    padding: 1px;
-    border-radius: 20px;
-    background-color: #7200a1;
-    h4,
-    h3 {
-      text-align: center;
-      color: #f2eaea;
-    }
-    .name_info {
-      margin-top: -20px;
-    }
-  }
 `;
 
 export default MenuSidebarStyled;

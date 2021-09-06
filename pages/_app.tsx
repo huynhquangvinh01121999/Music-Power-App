@@ -1,11 +1,12 @@
 import "../styles/globals.css";
 import Head from "next/head";
-import AppProvider from "../context/AppProvider";
+import AppProvider, { AppContext } from "../context/AppProvider";
 import Container from "../components/Container";
 import Sidebar from "../components/Sidebar";
 import Section from "../components/Section";
 import Header from "../components/Header";
 import MusicPlayer from "../components/MusicPlayer";
+import { useContext } from "react";
 
 function MyApp({ Component, pageProps }) {
   return (

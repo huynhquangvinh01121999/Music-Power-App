@@ -14,6 +14,10 @@ export default function AppProvider({ children }) {
 
   const [categoryTop100, setCatetogoryTop100] = useState("Nhạc trẻ");
 
+  const [isRepeat, setIsRepeat] = useState(false);
+
+  const [isHiddenSearch, setIsHiddenSearch] = useState(true);
+
   return (
     <AppContext.Provider
       value={{
@@ -21,10 +25,14 @@ export default function AppProvider({ children }) {
         isShowing,
         listMusic,
         categoryTop100,
+        isRepeat,
+        isHiddenSearch,
         setMusicChoicePlay,
         setIsShowing,
         setListMusic,
         setCatetogoryTop100,
+        setIsRepeat,
+        setIsHiddenSearch,
       }}
     >
       {children}

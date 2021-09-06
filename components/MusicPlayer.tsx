@@ -34,10 +34,10 @@ const SkipNextIconStyled = styled(SkipNextIcon)`
   @media screen and (max-width: 420px) {
     position: relative;
     top: 120px;
-    left: 360px;
+    left: 340px;
   }
 
-  @media screen and (max-width: 767px) {
+  @media screen and (max-width: 767px) and (min-width: 420px) {
     position: relative;
     top: 120px;
     left: 365px;
@@ -68,10 +68,14 @@ const RepeatIconStyled = styled(RepeatIcon)`
 `;
 
 export default function MusicPlayer() {
-  const { listMusic, musicChoicePlay, setMusicChoicePlay, isShowing } =
-    useContext(AppContext);
-
-  const [isRepeat, setIsRepeat] = useState(false);
+  const {
+    listMusic,
+    musicChoicePlay,
+    setMusicChoicePlay,
+    isShowing,
+    isRepeat,
+    setIsRepeat,
+  } = useContext(AppContext);
 
   const handlePlayNext = () => {
     if (musicChoicePlay.position == listMusic.length - 1) {
@@ -137,7 +141,7 @@ export default function MusicPlayer() {
         <audio
           className="audio_player"
           src={musicChoicePlay.music.music}
-          controls={"controls"}
+          controls
           loop={isRepeat}
           autoPlay
           title={

@@ -7,11 +7,11 @@ const ImageStyled = styled.div`
   background-color: white;
   border-radius: 15px;
   cursor: pointer;
-  @media screen and (max-width: 462px) {
-    margin-left: 0px;
+  @media screen and (max-width: 420px) {
+    margin-left: -15px;
   }
-  @media screen and (max-width: 767px) {
-    margin-left: 30px;
+  @media screen and (max-width: 767px) and (min-width: 421px) {
+    margin-left: 20px;
   }
 `;
 

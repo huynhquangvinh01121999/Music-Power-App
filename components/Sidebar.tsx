@@ -17,10 +17,6 @@ export default function Sidebar() {
           <h3>Music Power</h3>
         </TitleSidebarStyled>
         <MenuSidebarStyled>
-          <div className="userInfo">
-            <h4>Xin chào:</h4>
-            <h3 className="name_info">Chào mừng đến với Music Power</h3>
-          </div>
           <ul>
             <li>
               <Link href="/" passHref prefetch={false}>

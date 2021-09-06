@@ -7,6 +7,7 @@ const SectionStyled = styled.div`
   background-color: #170f23;
   display: inline-block;
   overflow-y: auto;
+  overflow-x: hidden;
   ::-webkit-scrollbar {
     width: 3px;
     background-color: #170f23;

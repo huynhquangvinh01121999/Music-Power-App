@@ -21,7 +21,7 @@ function MyApp({ Component, pageProps }) {
         />
       </Head>
       <body>
-        <div className="grid wide">
+        <div className="grid wide" hidden>
           <div className="row">
             <Sidebar />
             <div className="col l-10 m-9 c-12">

@@ -1,12 +1,15 @@
 /* eslint-disable @next/next/no-img-element */
 import React, { useContext, useState } from "react";
-import MusicPlayerStyled from "./customStyled/Player/MusicPlayerStyled";
 import { AppContext } from "../context/AppProvider";
 import SkipPreviousIcon from "@material-ui/icons/SkipPrevious";
 import SkipNextIcon from "@material-ui/icons/SkipNext";
 import RepeatIcon from "@material-ui/icons/Repeat";
 import ShuffleIcon from "@material-ui/icons/Shuffle";
 import styled from "styled-components";
+
+const MusicPlayerStyled = styled.div`
+  user-select: none;
+`;
 
 const RepeatIconStyled = styled(RepeatIcon)`
   cursor: pointer;
@@ -46,7 +49,7 @@ const SkipNextIconStyled = styled(SkipNextIcon)`
   border: 1px solid silver;
   border-radius: 50%;
   margin-left: -15px;
-  margin-top:8px;
+  margin-top: 8px;
   @media (max-width: 320px) {
     position: relative;
     left: 2px;
@@ -161,68 +164,70 @@ export default function MusicPlayer() {
   };
 
   return (
-    <div className="row music_player" hidden={isShowing}>
-      <div className="col l-12 m-12 c-12">
-        <div className="row">
-          <div className="col l-12 m-12 c-12">
-            <h3 className="music_player_title">
-              {musicChoicePlay.music.title} -{" "}
-              <span>{musicChoicePlay.music.creator}</span>
-            </h3>
+    <MusicPlayerStyled hidden={isShowing}>
+      <div className="row music_player">
+        <div className="col l-12 m-12 c-12">
+          <div className="row">
+            <div className="col l-12 m-12 c-12">
+              <h3 className="music_player_title">
+                {musicChoicePlay.music.title} -{" "}
+                <span>{musicChoicePlay.music.creator}</span>
+              </h3>
+            </div>
           </div>
-        </div>
-        <div className="row box_player">
-          <div className="col l-3 m-3 c-3 box_left_player">
-            <h3>
-              <img
-                className="img_player"
-                src={musicChoicePlay.music.avatar}
-                alt="error"
-                width={60}
-                height={60}
+          <div className="row box_player">
+            <div className="col l-3 m-3 c-3 box_left_player">
+              <h3>
+                <img
+                  className="img_player"
+                  src={musicChoicePlay.music.avatar}
+                  alt="error"
+                  width={60}
+                  height={60}
+                />
+              </h3>
+              <RepeatIconStyled
+                id="repeat"
+                style={{ fontSize: 30 }}
+                onClick={handleRepeat}
               />
-            </h3>
-            <RepeatIconStyled
-              id="repeat"
-              style={{ fontSize: 30 }}
-              onClick={handleRepeat}
-            />
-            <SkipPreviousIconStyled
-              color="primary"
-              style={{ fontSize: 40 }}
-              onClick={handlePlayPrevious}
-            />
-          </div>
-          <div className="col l-5 m-5 c-5">
-            <audio
-              className="audio_player"
-              src={musicChoicePlay.music.music}
-              controls
-              loop={isRepeat}
-              autoPlay
-              title={
-                musicChoicePlay.music.title +
-                " - " +
-                musicChoicePlay.music.creator
-              }
-              onEnded={handlePlayNextWhenEnd} // khi hết bài sẽ tự chuyển sang bài kế tiếp
-              onError={handlePlayNextWhenEnd} // khi gặp bài bị lỗi sẽ tự chuyển sang bài kế tiếp
-            />
-          </div>
-          <div className="col l-3 m-3 c-4">
-            <SkipNextIconStyled
-              color="primary"
-              style={{ fontSize: 40 }}
-              onClick={handlePlayNext}
-            />
-            <ShuffleIconStyled
-              style={{ fontSize: 30 }}
-              id="shuffle"
-              onClick={handleShuffle}
-            />
+              <SkipPreviousIconStyled
+                color="primary"
+                style={{ fontSize: 40 }}
+                onClick={handlePlayPrevious}
+              />
+            </div>
+            <div className="col l-5 m-5 c-5">
+              <audio
+                className="audio_player"
+                src={musicChoicePlay.music.music}
+                controls
+                loop={isRepeat}
+                autoPlay
+                title={
+                  musicChoicePlay.music.title +
+                  " - " +
+                  musicChoicePlay.music.creator
+                }
+                onEnded={handlePlayNextWhenEnd} // khi hết bài sẽ tự chuyển sang bài kế tiếp
+                onError={handlePlayNextWhenEnd} // khi gặp bài bị lỗi sẽ tự chuyển sang bài kế tiếp
+              />
+            </div>
+            <div className="col l-3 m-3 c-4">
+              <SkipNextIconStyled
+                color="primary"
+                style={{ fontSize: 40 }}
+                onClick={handlePlayNext}
+              />
+              <ShuffleIconStyled
+                style={{ fontSize: 30 }}
+                id="shuffle"
+                onClick={handleShuffle}
+              />
+            </div>
           </div>
         </div>
       </div>
-    </div>
+    </MusicPlayerStyled>
   );
 }

@@ -104,7 +104,7 @@ a {
   bottom: 0;
   background-color: #120c1c;
   width: 120%;
-  height:120px;
+  height: 120px;
 }
 .music_player_title {
   color: rgb(231, 221, 221);
@@ -113,7 +113,8 @@ a {
   word-wrap: break-word !important;
   width: 80%;
   margin-left: 10px;
-  margin-bottom: 0px;
+  margin-top: 8px;
+  margin-bottom: 5px;
 }
 .music_player_title,
 .music_player_title span {
@@ -125,9 +126,6 @@ a {
 }
 .img_player {
   display: none;
-}
-.box_player {
-  margin-top: 5px;
 }
 
 audio::-webkit-media-controls-panel {
@@ -261,6 +259,9 @@ audio::-webkit-media-controls-timeline {
       -moz-transform: rotate(360deg);
       -o-transform: rotate(360deg);
     }
+  }
+  .box_player {
+    margin-top: 5px;
   }
   .box_left_player h3 {
     width: 80px;

@@ -1,7 +1,6 @@
 /* eslint-disable @next/next/no-img-element */
 import Image from "next/image";
 import TitleMainStyled from "../components/customStyled/Home/TitleMainStyled";
-import ItemStyled from "../components/customStyled/Home/ItemStyled";
 import callApi from "axios";
 import top_100_nhactre from "../public/top100/top_100_nhactre.jpg";
 import top_100_trutinh from "../public/top100/top_100_trutinh.jpg";
@@ -78,7 +77,7 @@ export default function Home({ musics }) {
             className="image_top_100"
             src={top_100_nhactre}
             alt="error"
-            width={190}
+            width={185}
             height={200}
             onClick={() => handleGetMusicByCategory("nhactre")}
           />
@@ -88,7 +87,7 @@ export default function Home({ musics }) {
             className="image_top_100"
             src={top_100_trutinh}
             alt="error"
-            width={190}
+            width={185}
             height={200}
             onClick={() => handleGetMusicByCategory("trutinh")}
           />
@@ -98,7 +97,7 @@ export default function Home({ musics }) {
             className="image_top_100"
             src={top_100_aumy}
             alt="error"
-            width={190}
+            width={185}
             height={200}
             onClick={() => handleGetMusicByCategory("aumy")}
           />
@@ -108,7 +107,7 @@ export default function Home({ musics }) {
             className="image_top_100"
             src={top_100_han}
             alt="error"
-            width={190}
+            width={185}
             height={200}
             onClick={() => handleGetMusicByCategory("han")}
           />
@@ -118,7 +117,7 @@ export default function Home({ musics }) {
             className="image_top_100"
             src={top_100_rapviet}
             alt="error"
-            width={190}
+            width={185}
             height={200}
             onClick={() => handleGetMusicByCategory("rapviet")}
           />
@@ -128,7 +127,7 @@ export default function Home({ musics }) {
             className="image_top_100"
             src={top_100_cachmang}
             alt="error"
-            width={190}
+            width={185}
             height={200}
             onClick={() => handleGetMusicByCategory("han")}
           />

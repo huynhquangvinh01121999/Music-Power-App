@@ -8,83 +8,71 @@ import RepeatIcon from "@material-ui/icons/Repeat";
 import ShuffleIcon from "@material-ui/icons/Shuffle";
 import styled from "styled-components";
 
+const RepeatIconStyled = styled(RepeatIcon)`
+  cursor: pointer;
+  color: silver;
+  border: 1px solid white;
+  border-radius: 50%;
+  padding: 5px;
+  margin-bottom: 35px;
+  @media (max-width: 320px) {
+    margin-bottom: 48px;
+  }
+  @media (max-width: 576px) and (min-width: 321px) {
+    margin-bottom: 48px;
+  }
+`;
+
 const SkipPreviousIconStyled = styled(SkipPreviousIcon)`
   cursor: pointer;
-  margin-left: 10px;
-  margin-bottom: 5px;
   border: 1px solid silver;
   border-radius: 50%;
-  @media screen and (max-width: 420px) {
+  margin-bottom: 30px;
+  margin-left: 10px;
+  @media (max-width: 320px) {
     position: relative;
-    left: 40px;
-    top: 50px;
+    bottom: 15px;
+    right: 6px;
   }
-  @media screen and (max-width: 767px) {
+  @media (max-width: 576px) and (min-width: 321px) {
     position: relative;
-    left: 120px;
-    top: 120px;
+    bottom: 15px;
+    right: 6px;
   }
 `;
 
 const SkipNextIconStyled = styled(SkipNextIcon)`
   cursor: pointer;
-  margin-left: -220px;
-  margin-bottom: 5px;
   border: 1px solid silver;
   border-radius: 50%;
-  @media screen and (max-width: 420px) {
+  margin-left: -15px;
+  margin-top:8px;
+  @media (max-width: 320px) {
     position: relative;
-    top: 120px;
-    left: 350px;
+    left: 2px;
   }
-
-  @media screen and (max-width: 767px) and (min-width: 420px) {
+  @media (max-width: 576px) and (min-width: 321px) {
     position: relative;
-    top: 120px;
-    left: 365px;
-  }
-`;
-
-const RepeatIconStyled = styled(RepeatIcon)`
-  cursor: pointer;
-  margin-left: 30px;
-  margin-bottom: 8px;
-  color: silver;
-  border: 1px solid white;
-  border-radius: 50%;
-  padding: 5px;
-  @media screen and (max-width: 420px) {
-    position: relative;
-    left: 40px;
-    top: 50px;
-  }
-  @media screen and (max-width: 767px) {
-    position: relative;
-    left: 120px;
-    top: 120px;
+    left: 2px;
   }
 `;
 
 const ShuffleIconStyled = styled(ShuffleIcon)`
   position: relative;
-  bottom: 8px;
+  bottom: 4px;
   left: 10px;
   cursor: pointer;
   color: silver;
   border: 1px solid white;
   border-radius: 50%;
   padding: 5px;
-
-  @media screen and (max-width: 420px) {
+  @media (max-width: 320px) {
     position: relative;
-    top: 110px;
-    left: 360px;
+    left: 5px;
   }
-
-  @media screen and (max-width: 767px) and (min-width: 421px) {
+  @media (max-width: 576px) and (min-width: 321px) {
     position: relative;
-    top: 110px;
-    left: 370px;
+    left: 7px;
   }
 `;
 
@@ -173,52 +161,68 @@ export default function MusicPlayer() {
   };
 
   return (
-    <MusicPlayerStyled hidden={isShowing}>
-      <img
-        className="img_player"
-        src={musicChoicePlay.music.avatar}
-        alt="error"
-        width={60}
-        height={60}
-      />
-      <RepeatIconStyled
-        id="repeat"
-        style={{ fontSize: 30 }}
-        onClick={handleRepeat}
-      />
-      <SkipPreviousIconStyled
-        color="primary"
-        style={{ fontSize: 40 }}
-        onClick={handlePlayPrevious}
-      />
-      <div className="info_player">
-        <h3>
-          {musicChoicePlay.music.title} -{" "}
-          <span>{musicChoicePlay.music.creator}</span>
-        </h3>
-        <audio
-          className="audio_player"
-          src={musicChoicePlay.music.music}
-          controls
-          loop={isRepeat}
-          autoPlay
-          title={
-            musicChoicePlay.music.title + " - " + musicChoicePlay.music.creator
-          }
-          onEnded={handlePlayNextWhenEnd} // khi hết bài sẽ tự chuyển sang bài kế tiếp
-          onError={handlePlayNextWhenEnd} // khi gặp bài bị lỗi sẽ tự chuyển sang bài kế tiếp
-        />
+    <div className="row music_player" hidden={isShowing}>
+      <div className="col l-12 m-12 c-12">
+        <div className="row">
+          <div className="col l-12 m-12 c-12">
+            <h3 className="music_player_title">
+              {musicChoicePlay.music.title} -{" "}
+              <span>{musicChoicePlay.music.creator}</span>
+            </h3>
+          </div>
+        </div>
+        <div className="row box_player">
+          <div className="col l-3 m-3 c-3 box_left_player">
+            <h3>
+              <img
+                className="img_player"
+                src={musicChoicePlay.music.avatar}
+                alt="error"
+                width={60}
+                height={60}
+              />
+            </h3>
+            <RepeatIconStyled
+              id="repeat"
+              style={{ fontSize: 30 }}
+              onClick={handleRepeat}
+            />
+            <SkipPreviousIconStyled
+              color="primary"
+              style={{ fontSize: 40 }}
+              onClick={handlePlayPrevious}
+            />
+          </div>
+          <div className="col l-5 m-5 c-5">
+            <audio
+              className="audio_player"
+              src={musicChoicePlay.music.music}
+              controls
+              loop={isRepeat}
+              autoPlay
+              title={
+                musicChoicePlay.music.title +
+                " - " +
+                musicChoicePlay.music.creator
+              }
+              onEnded={handlePlayNextWhenEnd} // khi hết bài sẽ tự chuyển sang bài kế tiếp
+              onError={handlePlayNextWhenEnd} // khi gặp bài bị lỗi sẽ tự chuyển sang bài kế tiếp
+            />
+          </div>
+          <div className="col l-3 m-3 c-4">
+            <SkipNextIconStyled
+              color="primary"
+              style={{ fontSize: 40 }}
+              onClick={handlePlayNext}
+            />
+            <ShuffleIconStyled
+              style={{ fontSize: 30 }}
+              id="shuffle"
+              onClick={handleShuffle}
+            />
+          </div>
+        </div>
       </div>
-      <SkipNextIconStyled
-        color="primary"
-        style={{ fontSize: 40 }}
-        onClick={handlePlayNext}
-      />
-      <ShuffleIconStyled
-        style={{ fontSize: 30 }}
-        id="shuffle"
-        onClick={handleShuffle}
-      />
-    </MusicPlayerStyled>
+    </div>
   );
 }

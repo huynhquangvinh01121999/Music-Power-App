@@ -12,7 +12,7 @@ import CategoryIcon from "@material-ui/icons/Category";
 export default function Sidebar() {
   return (
     <>
-      <SidebarStyled>
+      <div className="col l-2 m-3 c-0 sidebar">
         <TitleSidebarStyled>
           <h3>Music Power</h3>
         </TitleSidebarStyled>
@@ -110,7 +110,7 @@ export default function Sidebar() {
           </ul>
           <div className="spacing"></div>
         </MenuSidebarStyled>
-      </SidebarStyled>
+      </div>
     </>
   );
 }

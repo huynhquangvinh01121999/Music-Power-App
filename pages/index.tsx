@@ -1,6 +1,5 @@
 /* eslint-disable @next/next/no-img-element */
 import Image from "next/image";
-import ImageStyled from "../components/customStyled/Home/ImageStyled";
 import TitleMainStyled from "../components/customStyled/Home/TitleMainStyled";
 import ItemStyled from "../components/customStyled/Home/ItemStyled";
 import callApi from "axios";
@@ -9,6 +8,7 @@ import top_100_trutinh from "../public/top100/top_100_trutinh.jpg";
 import top_100_aumy from "../public/top100/top_100_aumy.jpg";
 import top_100_han from "../public/top100/top_100_han.jpg";
 import top_100_rapviet from "../public/top100/top_100_rapviet.jpg";
+import top_100_cachmang from "../public/top100/top_100_cachmang.jpg";
 import { AppContext } from "../context/AppProvider";
 import React, { useContext, useEffect } from "react";
 
@@ -36,11 +36,7 @@ export default function Home({ musics }) {
   }, []);
 
   const handleScrollBody = () => {
-    document.getElementById("scroll_section").scrollTo({
-      top: 700,
-      left: 0,
-      behavior: "smooth",
-    });
+    window.scrollTo(0, 600);
   };
 
   const handleGetMusicByCategory = (category: string) => {
@@ -75,88 +71,102 @@ export default function Home({ musics }) {
 
   return (
     <>
-      <div className="banner_top100"></div>
-      <div className="category_top100">
-        <ImageStyled>
+      <div className="col l-12 m-12 c-12 banner_top100"></div>
+      <div className="row">
+        <div className="col l-2 m-4 c-6 category_image">
           <Image
-            className="banner"
+            className="image_top_100"
             src={top_100_nhactre}
             alt="error"
-            width={180}
-            height={180}
+            width={190}
+            height={200}
             onClick={() => handleGetMusicByCategory("nhactre")}
           />
-        </ImageStyled>
-        <ImageStyled>
+        </div>
+        <div className="col l-2 m-4 c-6 category_image">
           <Image
-            className="banner"
+            className="image_top_100"
             src={top_100_trutinh}
             alt="error"
-            width={180}
-            height={180}
+            width={190}
+            height={200}
             onClick={() => handleGetMusicByCategory("trutinh")}
           />
-        </ImageStyled>
-        <ImageStyled>
+        </div>
+        <div className="col l-2 m-4 c-6 category_image">
           <Image
-            className="banner"
+            className="image_top_100"
             src={top_100_aumy}
             alt="error"
-            width={180}
-            height={180}
+            width={190}
+            height={200}
             onClick={() => handleGetMusicByCategory("aumy")}
           />
-        </ImageStyled>
-        <ImageStyled>
+        </div>
+        <div className="col l-2 m-4 c-6 category_image">
           <Image
-            className="banner"
+            className="image_top_100"
             src={top_100_han}
             alt="error"
-            width={180}
-            height={180}
+            width={190}
+            height={200}
             onClick={() => handleGetMusicByCategory("han")}
           />
-        </ImageStyled>
-        <ImageStyled>
+        </div>
+        <div className="col l-2 m-4 c-6 category_image">
           <Image
-            className="banner"
+            className="image_top_100"
             src={top_100_rapviet}
             alt="error"
-            width={180}
-            height={180}
+            width={190}
+            height={200}
             onClick={() => handleGetMusicByCategory("rapviet")}
           />
-        </ImageStyled>
-        <style jsx global>{`
-          .banner {
-            border-radius: 5px;
-          }
-        `}</style>
-        ;
+        </div>
+        <div className="col l-2 m-4 c-6 category_image">
+          <Image
+            className="image_top_100"
+            src={top_100_cachmang}
+            alt="error"
+            width={190}
+            height={200}
+            onClick={() => handleGetMusicByCategory("han")}
+          />
+        </div>
       </div>
-      <div>
-        <TitleMainStyled>
-          <h4>Top 100 - {categoryTop100}</h4>
-        </TitleMainStyled>
-        <div>
+      <div className="row">
+        <div className="col l-12 m-12 c-12">
+          <TitleMainStyled>
+            <h4>Top 100 - {categoryTop100}</h4>
+          </TitleMainStyled>
+        </div>
+      </div>
+
+      <div className="row">
+        <div className="col l-12 m-12 c-12">
           {listMusic.map((music, index) => (
-            <ItemStyled
+            <div
+              className="row focus_play"
               key={index}
               onClick={() => handlePlayMusic(index, music)}
             >
-              <span className="numberItem">{index + 1}</span>
-              <img
-                className="imageItem"
-                src={music.avatar}
-                width={45}
-                height={45}
-                alt="null"
-              />
-              <div className="description">
+              <div className="col l-1 m-2 c-3">
+                <span className="numberItem">{index + 1}</span>
+              </div>
+              <div className="col l-1 m-2 c-2">
+                <img
+                  className="imageItem"
+                  src={music.avatar}
+                  width={45}
+                  height={45}
+                  alt="null"
+                />
+              </div>
+              <div className="col l-10 m-8 c-7">
                 <span className="music_song">{music.title}</span>
                 <span className="creator">{music.creator}</span>
               </div>
-            </ItemStyled>
+            </div>
           ))}
         </div>
       </div>

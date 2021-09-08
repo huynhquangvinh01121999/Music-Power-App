@@ -3,6 +3,8 @@ import styled from "styled-components";
 export const HeaderStyled = styled.div`
   width: 100%;
   padding: 20px;
+  @media (max-width: 320px) {
+    width: 200px;
   }
 `;
 
@@ -23,7 +25,16 @@ export const SearchStyled = styled.div`
       color: white;
     }
   }
-  @media screen and (max-width: 420px) {
+
+  @media (max-width: 320px) {
+    input {
+      width: 250px;
+      font-size: 10px;
+      padding: 10px;
+    }
+  }
+
+  @media screen and (max-width: 420px) and (min-width: 321px) {
     width: 320px;
     input {
       width: 320px;
@@ -36,6 +47,7 @@ export const SearchStyled = styled.div`
       width: 390px;
     }
   }
+
   .dropdown-search_content {
     border-top: 1px solid #432275;
     position: absolute;
@@ -58,11 +70,12 @@ export const SearchStyled = styled.div`
     ::-webkit-scrollbar-thumb {
       background-color: #f5f5f5;
     }
-    @media screen and (max-width: 420px) {
+
+    @media screen and (max-width: 420px) and (min-width: 320px) {
       width: 280px;
     }
 
-    @media screen and (max-width: 767px) and (min-width: 420px) {
+    @media screen and (max-width: 767px) and (min-width: 421px) {
       width: 353px;
     }
   }
